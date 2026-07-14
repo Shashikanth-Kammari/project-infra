@@ -7,6 +7,9 @@ terraform {
   }
 }
 
+# provide the authentication here
+
 provider "aws" {
+    region = "us-east-1"
   # Configuration options
 }
