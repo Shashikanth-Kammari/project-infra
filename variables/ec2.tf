@@ -1,15 +1,3 @@
-
-resource "aws_instance" "db" {
-
-    ami = "ami-00adafae70b8029d8"
-    vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-    instance_type = "t3.micro"
-
-    tags = {
-        Name = "db"
-    }
-}
-
 # resource <resource type> and <resource name>
 resource "aws_security_group" "allow_ssh" {
     name = "allow_ssh"
