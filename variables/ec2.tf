@@ -12,8 +12,8 @@ resource "aws_instance" "db" {
 
 # resource <resource type> and <resource name>
 resource "aws_security_group" "allow_ssh" {
-    name = "allow_ssh"
-    description =  "allowing SSH access"
+    name = var.sg_name
+    description =  var.sg_description
     ingress {
         from_port        = 22
         to_port          = 22
