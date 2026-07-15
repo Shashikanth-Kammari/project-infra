@@ -1,6 +1,9 @@
+
+#instance details and size with aws ami id adding security group
+
 resource "aws_instance" "db" {
 
-    ami = "ami-00adafae70b8029d8"
+    ami = var.image_id
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
     instance_type = "t3.micro"
 
