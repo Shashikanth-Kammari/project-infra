@@ -28,11 +28,7 @@ resource "aws_security_group" "allow_ssh" {
         cidr_blocks      = ["0.0.0.0/0"]
     }
 
-
     tags = {
         Name = "allow_ssh"
-        createdby = "shashikanth"
-    }
-
-     
+        CreatedBy = "Sivakumar"
 }
