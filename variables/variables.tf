@@ -28,3 +28,18 @@ variable "sg_name" {
 variable "sg_description" {
   default = "allowing port 22"
 }
+
+variable "ssh_port" {
+  default = 22
+  type = number
+}
+
+variable "protocol" {
+  type = string
+  default = "tcp"
+}
+
+variable "cidr_block" {
+  type = list 
+  default = ["0.0.0.0/0"]
+}
