@@ -5,11 +5,9 @@ resource "aws_instance" "db" {
 
     ami = var.image_id
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-    instance_type = "t3.micro"
+    instance_type = var.instnace_type
 
-    tags = {
-        Name = "db"
-    }
+    tags = var.tags
 }
 
 # resource <resource type> and <resource name>
