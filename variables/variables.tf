@@ -17,7 +17,7 @@ variable "tags" {
     Project = "macys"
     Environment = "dev"
     Module = "DB"
-    Mame = "DB"
+    Name = "DB"
   }
 }
 
