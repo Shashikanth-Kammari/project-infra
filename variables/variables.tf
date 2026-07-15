@@ -20,3 +20,11 @@ variable "tags" {
     name = "DB"
   }
 }
+
+variable "sg_name" {
+  default = "alloe_ssh"
+}
+
+variable "sg_description" {
+  default = "allowing port 22"
+}
