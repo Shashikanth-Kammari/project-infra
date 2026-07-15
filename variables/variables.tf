@@ -14,10 +14,10 @@ variable "instnace_type" {
 
 variable "tags" {
   default = {
-    project = "macys"
-    environment = "dev"
-    module = "DB"
-    name = "DB"
+    Project = "macys"
+    Environment = "dev"
+    Module = "DB"
+    Mame = "DB"
   }
 }
 
@@ -40,6 +40,6 @@ variable "protocol" {
 }
 
 variable "cidr_block" {
-  type = list 
+  type = list(string)
   default = ["0.0.0.0/0"]
 }
