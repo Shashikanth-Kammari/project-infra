@@ -1,5 +1,5 @@
 
-resource "aws_instance" "db" {
+resource "aws_instance" "db_instance" {
 
     ami = "ami-00adafae70b8029d8"
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
