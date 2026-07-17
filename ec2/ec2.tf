@@ -14,7 +14,7 @@ resource "aws_instance" "db_instance" {
 
 resource "aws_key_pair" "mykey" {
   key_name   = "mykey"
-  public_key = file("/C/Users/shash/devops.pub")
+  public_key = file("~/.ssh/id_rsa.pub")
 }
 # resource <resource type> and <resource name>
 resource "aws_security_group" "allow_ssh" {
