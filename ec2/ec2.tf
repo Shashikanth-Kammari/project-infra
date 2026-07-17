@@ -5,11 +5,17 @@ resource "aws_instance" "db_instance" {
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
     instance_type = "t3.micro"
 
+    key_name = aws_key_pair.mykey.key_name
+
     tags = {
         Name = "db"
     }
 }
 
+resource "aws_key_pair" "mykey" {
+  key_name   = "mykey"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
 # resource <resource type> and <resource name>
 resource "aws_security_group" "allow_ssh" {
     name = "allow_ssh"
