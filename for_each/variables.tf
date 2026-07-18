@@ -10,10 +10,16 @@ variable "vpc_security_group_id" {
 }
 
 variable "instance_names" {
-  type = string
+  type = map
   default = {
     db = "t3.small"
     backend = "t3.micro"
     frontend = "t3.micro"
+  }
+}
+
+variable "common_tags" {
+  default = {
+    project = "macys"
   }
 }
