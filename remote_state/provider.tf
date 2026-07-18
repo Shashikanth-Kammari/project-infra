@@ -10,6 +10,7 @@ terraform {
     bucket = "shashikanth-s3-bucket"
     key    = "resomte-state-demo"
     region = "us-east-1"
+    dynamodb_table = "shashikanth-s3-locking"
   }
 }
 
