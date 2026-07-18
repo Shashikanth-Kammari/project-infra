@@ -1,44 +1,55 @@
+# ec2 variables
+variable "instance_names" {
+    type = list
+    default = ["db","backend","frontend"]
+}
 variable "image_id" {
-  default = "ami-00adafae70b8029d8"
-  description = "RHEL AMI Id"
+  type        = string #optional
+  default     = "ami-0d9f6f413453de9a6" #optional
+  description = "RHEL-9 AMI ID" #optional
 }
 
-variable "secuirty_group" {
-  default = "allow_ssh"
+variable "instance_type" {
+    default = "t3.micro"
+    type = string
 }
 
-variable "instnace_type" {
-  default = "t3.micro"
+variable "common_tags" {
+    default = {
+        Project = "expense"
+        Environment = "Dev"
+        Terraform = "true"
+    }
 }
 
-variable "tags" {
-  default = {
-    Project = "macys"
-    Environment = "dev"
-    Module = "DB"
-    Name = "DB"
-  }
-}
-
+#sg variables
 variable "sg_name" {
-  default = "alloe_ssh"
+    default = "allow_ssh"
 }
 
 variable "sg_description" {
-  default = "allowing port 22"
+    default = "allowing port 22"
 }
 
 variable "ssh_port" {
-  default = 22
-  type = number
+    default = 22
 }
 
 variable "protocol" {
-  type = string
-  default = "tcp"
+    default = "tcp"
 }
 
-variable "cidr_block" {
-  type = list(string)
-  default = ["0.0.0.0/0"]
+variable "allowed_cidr" {
+    type = list(string)
+    default = ["0.0.0.0/0"]
+}
+
+
+#r53 variables
+variable "zone_id" {
+    default = "Z08884492QFPW45HM4UQO"
+}
+
+variable "domain_name" {
+    default = "daws78s.online"
 }
