@@ -25,3 +25,12 @@ variable "common_tags" {
     terraform = "true"
   }
 }
+
+variable "domain_name" {
+  default = "shashikanth-devops.online"
+  
+}
+
+variable "zone_id" {
+  default = "Z0433999PFN006E2ZQ5H"
+}
