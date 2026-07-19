@@ -47,9 +47,9 @@ variable "allowed_cidr" {
 
 #r53 variables
 variable "zone_id" {
-    default = "Z09212853R93L2LZM383U"
+    default = "Z0433999PFN006E2ZQ5H"
 }
 
 variable "domain_name" {
-    default = "shashikanth.com"
+    default = "shashikanth-devops.online"
 }
