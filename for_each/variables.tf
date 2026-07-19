@@ -19,7 +19,9 @@ variable "instance_names" {
 }
 
 variable "common_tags" {
+  type = map
   default = {
     project = "macys"
+    terraform = "true"
   }
 }
