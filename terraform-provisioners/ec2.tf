@@ -7,4 +7,8 @@ resource "aws_instance" "db_instance" {
     provisioner "local-exec" {
       command = "echo ${self.private_ip}  >  private_ips.txt"
     }
+
+    provisioner "local-exec" {
+      command = "ansible-playbook -i private_ips.txt web.yaml"
+    }
 }
