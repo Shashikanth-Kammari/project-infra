@@ -4,6 +4,8 @@ resource "aws_instance" "db_instance" {
     vpc_security_group_ids = ["sg-00a444020c19fefae"]
     instance_type = "t3.micro"
 
+    #provosioners will run when your creating the reouces 
+    #they will not run once the resources are created
     provisioner "local-exec" {
       command = "echo ${self.private_ip}  >  private_ips.txt"
     }
