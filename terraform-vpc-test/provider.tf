@@ -7,9 +7,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "shashikanth-s3-bucket"
-    key    = "expense-vpc"
-    region = "us-east-1"
+    bucket         = "shashikanth-s3-bucket"
+    key            = "expense-vpc"
+    region         = "us-east-1"
     dynamodb_table = "shashikanth-s3-locking"
   }
 }
@@ -17,6 +17,6 @@ terraform {
 # provide the authentication here
 
 provider "aws" {
-    region = "us-east-1"
+  region = "us-east-1"
   # Configuration options
 }
