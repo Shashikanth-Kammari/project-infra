@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "shashikanth-s3-bucket"
-    key    = "workspace"
+    key    = "expense-vpc"
     region = "us-east-1"
     dynamodb_table = "shashikanth-s3-locking"
   }
