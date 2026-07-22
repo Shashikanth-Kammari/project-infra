@@ -29,3 +29,26 @@ variable "vpc_tags" {
   type = map 
   default = {}
 }
+
+### IGW variables
+
+variable "igw_tags" {
+  type = map 
+  default = {}
+}
+
+
+### public subnet
+
+variable "public_subnet_cidrs" {
+  type = list
+  validation {
+    condition = length(var.public_subnet_cidrs) == 2
+    error_message = "please provide 2 valid public subnet CIDR"
+  }
+}
+
+variable "public_subnet_cidr_tags" {
+  type = map 
+  default = {}
+}

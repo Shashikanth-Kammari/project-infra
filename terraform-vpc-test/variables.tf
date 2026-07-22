@@ -9,3 +9,7 @@ variable "common_tags" {
     Terraform = "true"
   }
 }
+
+variable "public_subnet_cidrs" {
+  default = ["10.0.1.0/24"]
+}
