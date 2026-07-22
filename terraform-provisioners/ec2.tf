@@ -7,7 +7,7 @@ resource "aws_instance" "db_instance" {
     #provosioners will run when your creating the reouces 
     #they will not run once the resources are created
     provisioner "local-exec" {
-      command = "echo ${self.public_ip}  >  private_ips.txt"
+      command = "echo ${self.public_ip}  >  public_ips.txt"
     }
 
     # provisioner "local-exec" {
