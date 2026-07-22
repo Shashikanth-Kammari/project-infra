@@ -60,6 +60,7 @@ resource "aws_subnet" "private" {
 
 
 ### database subnet 
+
 resource "aws_subnet" "database" {
   count = length(var.database_subnet_cidr_tags)
   availability_zone = local.az_names[count.index]
