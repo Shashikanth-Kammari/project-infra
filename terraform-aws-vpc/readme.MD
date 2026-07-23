@@ -1,6 +1,6 @@
 # Custom AWS VPC Module
 
-![alt text](images/vpc.jpg)
+![alt text](vpc.jpg)
 
 This module is developed for expense.com  we are creatting following resources
 
