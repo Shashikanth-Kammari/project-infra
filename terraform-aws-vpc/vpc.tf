@@ -92,3 +92,17 @@ resource "aws_nat_gateway" "nat" {
   )
   depends_on = [ aws_internet_gateway.gw ]
 }
+
+###publie route table
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+
+
+  tags = merge(
+    var.common_tags,
+    var.nat_gateway_tags,
+    {
+        Name = "${local.resource_name}"
+    }
+  )
+}
