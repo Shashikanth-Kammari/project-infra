@@ -100,9 +100,81 @@ resource "aws_route_table" "public" {
 
   tags = merge(
     var.common_tags,
-    var.nat_gateway_tags,
+    var.public_route_table_tags,
     {
-        Name = "${local.resource_name}"
+        Name = "${local.resource_name}-public"
     }
   )
+}
+
+
+###private route table
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.main.id
+
+
+  tags = merge(
+    var.common_tags,
+    var.private_route_table_tags,
+    {
+        Name = "${local.resource_name}-private"
+    }
+  )
+}
+
+###database route table
+resource "aws_route_table" "database" {
+  vpc_id = aws_vpc.main.id
+
+
+  tags = merge(
+    var.common_tags,
+    var.database_route_table_tags,
+    {
+        Name = "${local.resource_name}-database"
+    }
+  )
+}
+
+
+### public route to IGW
+resource "aws_route" "public_route" {
+  route_table_id            = aws_route_table.public.id
+  destination_cidr_block    = "0.0.0.0/0"
+  gateway_id = aws_internet_gateway.gw
+}
+
+#### private route to nat gateway
+resource "aws_route" "private_route_nat" {
+  route_table_id            = aws_route_table.private.id
+  destination_cidr_block    = "0.0.0.0/0"
+  nat_gateway_id = aws_nat_gateway.nat.id
+}
+
+#### database route to nat gateway
+
+resource "aws_route" "database_route_nat" {
+  route_table_id            = aws_route_table.database.id
+  destination_cidr_block    = "0.0.0.0/0"
+  nat_gateway_id = aws_nat_gateway.nat.id
+}
+
+#### route table and subnet associations ####
+
+resource "aws_route_table_association" "public" {
+  count = length(var.public_subnet_cidrs)
+  subnet_id      = element(aws_subnet.public[*].id, count.index)
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "private" {
+  count = length(var.private_subnet_cidrs)
+  subnet_id      = element(aws_subnet.private[*].id, count.index)
+  route_table_id = aws_route_table.private.id
+}
+
+resource "aws_route_table_association" "database" {
+  count = length(var.database_subnet_cidrs)
+  subnet_id      = element(aws_subnet.database[*].id, count.index)
+  route_table_id = aws_route_table.database.id
 }
