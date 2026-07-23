@@ -53,7 +53,7 @@ resource "aws_subnet" "private" {
     var.common_tags,
     var.private_subnet_cidr_tags,
     {
-        Name = "${local.resource_name}-${local.az_names[count.index]}"
+        Name = "${local.resource_name}-private-${local.az_names[count.index]}"
     }
   )
 }
@@ -72,7 +72,7 @@ resource "aws_subnet" "database" {
     var.common_tags,
     var.database_subnet_cidr_tags,
     {
-        Name = "${local.resource_name}-${local.az_names[count.index]}"
+        Name = "${local.resource_name}-database-${local.az_names[count.index]}"
     }
   )
 }
