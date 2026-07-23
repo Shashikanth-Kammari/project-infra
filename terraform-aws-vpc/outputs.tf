@@ -19,6 +19,6 @@ output "database_subnet_ids" {
   value = aws_subnet.database[*].id
 }
 
-output "database_subnet_group_is" {
+output "database_subnet_group_id" {
   value = aws_db_subnet_group.default.id
 }
