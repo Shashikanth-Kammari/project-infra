@@ -119,3 +119,7 @@ variable "accepter_vpc_id" {
   default = ""
 }
 
+variable "vpc_peering_tags" {
+  type = map 
+  default = {}
+}
