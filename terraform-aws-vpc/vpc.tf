@@ -88,10 +88,13 @@ resource "aws_db_subnet_group" "default" {
   )
 }
 
+#### creation of elastic ip ####
+
 resource "aws_eip" "nat" {
   domain = "vpc"
 }
 
+#### connecting elastic ip to nat gateway ####
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat.id
   subnet_id = aws_subnet.public[0].id
